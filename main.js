@@ -14,6 +14,7 @@ var dino={
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
+dino.draw();
 
 
 class Cactus{
@@ -30,23 +31,22 @@ class Cactus{
 }
 
 var timer = 0;
-var cactus여러개=[];
+var cactuss=[];
 
 
-function 프레임마다실행할거(){
-    requestAnimationFrame(프레임마다실행할거);
+function frameact(){
+    requestAnimationFrame(frameact);
     timer++;
-    ctx.clearRext(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     
-    if(timer%120==0){
+    if(timer%120===0){
         var cactus=new Cactus();
-        cactus여러개.push(cactus);
+        cactuss.push(cactus);
     }
-    cactus여러개.forEach((a)=>{
+    cactuss.forEach((a)=>{
         a.x--; 
         a.draw();
     })
-    cactus.draw();
     dino.draw()
 }
-프레임마다실행할거();
+frameact();
